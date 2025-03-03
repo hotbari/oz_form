@@ -5,8 +5,12 @@ from app.services.users import (
     create_user, get_all_users, get_user_by_id, update_user, delete_user
 )
 
+routes = Blueprint("routes", __name__)
 user_blp = Blueprint("Users", "users", description="Operations on users", url_prefix="/signup")
 
+@routes.route("/")
+def home():
+    return "Helloe, Flask"
 
 @user_blp.route('/')
 class UserCreate(MethodView):
